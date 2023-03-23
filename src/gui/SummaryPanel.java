@@ -151,7 +151,30 @@ public class SummaryPanel extends JPanel{
 				
 			}
 		});
+
+		JButton newgame = new JButton("");
+		newgame.setBorderPainted(false);
+		newgame.setContentAreaFilled(false);
+		newgame.setIcon(new ImageIcon("./Resources/LayoutImages/button_new-game.png"));
+
+		newgame.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				// start over again
+				if (e.getSource() == newgame) {
+
+					Frame[] fr=JFrame.getFrames();
+					for(Frame f:fr)
+					{
+						f.dispose();
+					}
+					new UserPage();
+				}
+			}
+		});
+
 		playAgainPane.add(btnPlayAgain);
+		playAgainPane.add(newgame);
 		//show Try again button
     	playAgainPane.setVisible(true);
     	add(playAgainPane,BorderLayout.SOUTH);//add to layout
