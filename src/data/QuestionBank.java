@@ -9,11 +9,6 @@ import java.util.List;
 
 
 public abstract class QuestionBank {
-
-    /**
-     * Constructor
-     * @param fileName
-     */
     public QuestionBank(String fileName)
     {
         //load data from file and set questionList
@@ -77,11 +72,6 @@ public abstract class QuestionBank {
                 String line;
                 while((line=reader.readLine())!=null)
                 {
-                    //validate format of each line
-                    //records with invalid format are discarded
-                    //Expected format of each record:
-                    //<questiontype>question<F>file name(if question is image type)</F><O>colon separated options</O><A>answer</A>
-
                     ++i;
                     newQuestion=new Question();
                     newQuestion.setQuestionID(i);
@@ -102,11 +92,11 @@ public abstract class QuestionBank {
                         newQuestion.setQuestionImage(IMAGE_PATH+line.substring(line.indexOf("<F>")+3,line.indexOf("</F>")));//set image path
                         //System.out.println("imagepath="+newQuestion.getQuestionImage());
                     }
-                    if(qType==QuestionType.IMAGEANSWER)
-                    {
-                        newQuestion.setQuestionType(QuestionType.IMAGEANSWER);
-                        newQuestion.setQuestionText(line.substring(4, line.indexOf("<O>")));
-                    }
+//                    if(qType==QuestionType.IMAGEANSWER)
+//                    {
+//                        newQuestion.setQuestionType(QuestionType.IMAGEANSWER);
+//                        newQuestion.setQuestionText(line.substring(4, line.indexOf("<O>")));
+//                    }
 
 
                     //split the string enclosed in <O></O> and set options
@@ -169,8 +159,8 @@ public abstract class QuestionBank {
             return QuestionType.MULTIPLECHOICE;
         else if(questionType.equals("<QI>"))
             return QuestionType.IMAGEQUESTION;
-        else if(questionType.equals("<AI>"))
-            return QuestionType.IMAGEANSWER;
+//        else if(questionType.equals("<AI>"))
+//            return QuestionType.IMAGEANSWER;
 
         return null;
     }

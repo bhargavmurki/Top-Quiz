@@ -56,31 +56,31 @@ public class SummaryPanel extends JPanel{
 		//setPreferredSize(new Dimension(700,700));
 		setLayout(new BorderLayout());
 		
-		lblThank=new JLabel("<html>Thank You. Here is your score statistics.<br/></html>",SwingConstants.CENTER);
+		lblThank=new JLabel("<html>Please see you results below<br/></html>",SwingConstants.CENTER);
 		lblTotalScore=new JLabel( summary.getUserName() + "'s score is: "+summary.getTotalScore());
 		lblAttempted=new JLabel("Number of questions attempted: "+summary.getTotalQuestions());
 		lblCorrect=new JLabel("Number of correct answers: "+summary.getCorrectAnswers());
 		lblInfo=new JLabel();
 		
-		lblThank.setFont(new Font("Calibri", Font.BOLD, 25));
-		lblThank.setForeground(new Color(0, 0, 139));
-		lblTotalScore.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblThank.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblThank.setForeground(new Color(0, 0, 0));
+		lblTotalScore.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		lblTotalScore.setForeground(new Color(0, 128, 0));
-		lblAttempted.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblAttempted.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		lblAttempted.setForeground(new Color(0, 128, 0));
-		lblCorrect.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblCorrect.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		lblCorrect.setForeground(new Color(0, 128, 0));
-		lblInfo.setFont(new Font("Calibri", Font.BOLD, 15));
-		lblInfo.setForeground(new Color(0, 0, 139));
+		lblInfo.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		lblInfo.setForeground(new Color(0, 0, 0));
 		
 		if(summary.getTotalScore()==0)
 		{
-			lblInfo.setText("<html>Your score is too low.<br/>Better luck next time!</html>");
+			lblInfo.setText("<html>Better luck next time!</html>");
 			lblInfo.setForeground(Color.RED);
 		}
 		else{
 			lblInfo.setText("<html>View your performance in <u>each of the topics you scored</u> below.</html>");
-			lblInfo.setForeground(new Color(0, 0, 139));
+			lblInfo.setForeground(new Color(0, 0, 0));
 		}
 
 		JPanel finalScorePane = new JPanel();
@@ -127,13 +127,13 @@ public class SummaryPanel extends JPanel{
 		//play again option
 		playAgainPane=new JPanel();
 		playAgainPane.setAlignmentX(Component.CENTER_ALIGNMENT);
-		btnPlayAgain=new JButton("Replay");
-		btnPlayAgain.setIcon(new ImageIcon("./Resources/LayoutImages/routeReplay.png"));
+		btnPlayAgain=new JButton("");
+		btnPlayAgain.setIcon(new ImageIcon("./Resources/LayoutImages/button_replay.png"));
 		btnPlayAgain.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnPlayAgain.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnPlayAgain.setBorderPainted(false);
 		btnPlayAgain.setContentAreaFilled(false);
-		btnPlayAgain.setFont(new Font("Calibri", Font.BOLD, 15));
+		btnPlayAgain.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btnPlayAgain.setForeground(new Color(0, 0, 139));
 		btnPlayAgain.addActionListener(new ActionListener() {
 			
@@ -173,8 +173,31 @@ public class SummaryPanel extends JPanel{
 			}
 		});
 
+		JButton exitQuiz = new JButton("");
+		exitQuiz.setBorderPainted(false);
+		exitQuiz.setContentAreaFilled(false);
+		exitQuiz.setIcon(new ImageIcon("./Resources/LayoutImages/button_exit.png"));
+
+		exitQuiz.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				// start over again
+				if (e.getSource() == exitQuiz) {
+					System.exit(0);
+
+//					Frame[] fr=JFrame.getFrames();
+//					for(Frame f:fr)
+//					{
+//						f.dispose();
+//					}
+
+				}
+			}
+		});
+
 		playAgainPane.add(btnPlayAgain);
 		playAgainPane.add(newgame);
+		playAgainPane.add(exitQuiz);
 		//show Try again button
     	playAgainPane.setVisible(true);
     	add(playAgainPane,BorderLayout.SOUTH);//add to layout
@@ -218,9 +241,9 @@ class BarChart extends JPanel
 		int maxHeight=300;
 		
 		//title and subject label styles
-		Font titleFont = new Font("Calibri", Font.BOLD, 20);
+		Font titleFont = new Font("Times New Roman", Font.BOLD, 20);
 	    FontMetrics titleFontMetrics = g.getFontMetrics(titleFont);
-	    Font labelFont = new Font("Calibri", Font.BOLD, 15);
+	    Font labelFont = new Font("Times New Roman", Font.BOLD, 15);
 	    FontMetrics labelFontMetrics = g.getFontMetrics(labelFont);
 
 	    int titleWidth = titleFontMetrics.stringWidth(title);

@@ -4,7 +4,8 @@ view score
 remove duplicates
 ) - DONE
 
-print data to console
+print data to console (done - printing to a file)
 change the code up a bit
 add a button to new quiz to go to the registration page (done)
 add a back button on the results page (done)
+added more questions (done)

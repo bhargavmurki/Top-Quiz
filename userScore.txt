@@ -7,3 +7,18 @@ bd null 1 null
 asf null 1 null
 sda null 0 null
 asd null 0 null
+sdf null null 0
+saf null 1 null
+saf 0 null null
+saf 0 0 0
+saf 1 1 0
+sdf null 1 null
+wqd 0 null null
+asd 1 null null
+sada 0 null null
+asd 0 null null
+g hj 1 null null
+alsjflakj 1 null null
+ksdjdfhlkjd null null 6
+akljdshfkaj null 1 null
+safda null 0 null

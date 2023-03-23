@@ -3,18 +3,17 @@ package data;
 import java.util.ArrayList;
 import java.util.Random;
 
+public class ScienceQuiz extends QuestionBank {
 
-public class GeographyBank extends QuestionBank{
-
-    public GeographyBank()
+    public ScienceQuiz()
     {
-        super("geography.txt");
+        super("science.txt");
         uniqueQuestionList=getQuestionList();
     }
-
     private static ArrayList<Question> uniqueQuestionList=new ArrayList<Question>();
 
 
+//    @Override
     public Question getRandomQuestion() {
         if(uniqueQuestionList.size()==0)
             return null;

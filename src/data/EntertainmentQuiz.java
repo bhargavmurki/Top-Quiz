@@ -3,9 +3,9 @@ package data;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class EntertainmentBank extends QuestionBank {
+public class EntertainmentQuiz extends QuestionBank {
 
-    public EntertainmentBank()
+    public EntertainmentQuiz()
     {
         super("entertainment.txt");
         uniqueQuestionList=getQuestionList();

@@ -6,7 +6,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,12 +24,12 @@ import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
 import data.Subjects;
-import data.EntertainmentBank;
-import data.GeographyBank;
+import data.EntertainmentQuiz;
+import data.GeographyQuiz;
 import data.Question;
 import data.QuestionBank;
 import data.QuestionType;
-import data.ScienceBank;
+import data.ScienceQuiz;
 
 
 public class QuestionPanel extends JPanel {
@@ -67,17 +66,17 @@ public class QuestionPanel extends JPanel {
 	protected QuestionBank qb;
 	
 	//to get questions for each topic
-	private static GeographyBank geographyBank=new GeographyBank();
-	private static ScienceBank scienceBank=new ScienceBank();
-	private static EntertainmentBank entertainmentBank=new EntertainmentBank();
+	private static GeographyQuiz geographyQuiz =new GeographyQuiz();
+	private static ScienceQuiz scienceQuiz =new ScienceQuiz();
+	private static EntertainmentQuiz entertainmentQuiz =new EntertainmentQuiz();
 	
 	private String quizSubject;
 
 	private void initValues()
 	{
-		geographyBank=null;
-		scienceBank=null;
-		entertainmentBank=null;
+		geographyQuiz =null;
+		scienceQuiz =null;
+		entertainmentQuiz =null;
 		newQuestion=null;
 		qb=null;
 		attempted=0;
@@ -376,16 +375,16 @@ public class QuestionPanel extends JPanel {
 	{
 		switch (quizSubject) {
 		case "Geography":
-			qb=geographyBank;
-			geographyBank.incrementQuestionsAttempted();
+			qb= geographyQuiz;
+			geographyQuiz.incrementQuestionsAttempted();
 			break;
 		case "Science":
-			qb=scienceBank;
-			scienceBank.incrementQuestionsAttempted();
+			qb= scienceQuiz;
+			scienceQuiz.incrementQuestionsAttempted();
 			break;
 		case "Entertainment":
-			qb=entertainmentBank;
-			entertainmentBank.incrementQuestionsAttempted();
+			qb= entertainmentQuiz;
+			entertainmentQuiz.incrementQuestionsAttempted();
 			break;
 		default:
 			break;
@@ -397,9 +396,9 @@ public class QuestionPanel extends JPanel {
 		if(attempted==0)//first time loading quiz
 		{
 			attempted++;//increment counter for first time load
-			geographyBank=new GeographyBank();
-			scienceBank=new ScienceBank();
-			entertainmentBank=new EntertainmentBank();
+			geographyQuiz =new GeographyQuiz();
+			scienceQuiz =new ScienceQuiz();
+			entertainmentQuiz =new EntertainmentQuiz();
 
 			setQuestionBank();
 		}
@@ -456,21 +455,21 @@ public class QuestionPanel extends JPanel {
     	//calculate total percentage score of each subject
 		HashMap<String, Integer> scoresToSave = new HashMap<String, Integer>();
     	Map<String,Double> percentScore = new HashMap<String,Double>();
-    	if(geographyBank.getQuestionsAttempted()>0)
+    	if(geographyQuiz.getQuestionsAttempted()>0)
     	{
-    		percentScore.put(Subjects.GEOGRAPHY.toString(), geographyBank.getPercentageScore());
-			scoresToSave.put(Subjects.GEOGRAPHY.toString(), geographyBank.getCorrectAnswers());
+    		percentScore.put(Subjects.GEOGRAPHY.toString(), geographyQuiz.getPercentageScore());
+			scoresToSave.put(Subjects.GEOGRAPHY.toString(), geographyQuiz.getCorrectAnswers());
 
     	}
-    	if(scienceBank.getQuestionsAttempted()>0)
+    	if(scienceQuiz.getQuestionsAttempted()>0)
     	{
-    		percentScore.put(Subjects.SCIENCE.toString(),scienceBank.getPercentageScore());
-			scoresToSave.put(Subjects.SCIENCE.toString(), scienceBank.getCorrectAnswers());
+    		percentScore.put(Subjects.SCIENCE.toString(), scienceQuiz.getPercentageScore());
+			scoresToSave.put(Subjects.SCIENCE.toString(), scienceQuiz.getCorrectAnswers());
     	}
-    	if(entertainmentBank.getQuestionsAttempted()>0)
+    	if(entertainmentQuiz.getQuestionsAttempted()>0)
     	{
-    		percentScore.put(Subjects.ENTERTAINMENT.toString(),entertainmentBank.getPercentageScore());
-			scoresToSave.put(Subjects.ENTERTAINMENT.toString(), entertainmentBank.getCorrectAnswers());
+    		percentScore.put(Subjects.ENTERTAINMENT.toString(), entertainmentQuiz.getPercentageScore());
+			scoresToSave.put(Subjects.ENTERTAINMENT.toString(), entertainmentQuiz.getCorrectAnswers());
     	}
 
     	ScoreSummary scoreSummary=new ScoreSummary();
