@@ -1,50 +1,28 @@
-<MC>Brass gets discolored in air because of the presence of which of the following gases in air?<O> Oxygen:Hydrogen sulphide:Carbon dioxide:Nitrogen</O><A>Hydrogen sulphide</A>
-<MC>Which of the following is a non metal that remains liquid at room temperature<O>Phosphorous:Bromine:Chlorine:Helium</O><A>Bromine</A>
-<MC>Chlorophyll is a naturally occurring chelate compound in which central metal is<O>copper:magnesium:iron:calcium</O><A>magnesium</A>
 <MC>Which of the following is used in pencils?<O>Graphite:Silicon:Charcoal:Phosphorous</O><A>Graphite</A>
-<MC>Which of the following metals forms an amalgam with other metals?<O>Tin:Mercury:Lead:Zinc</O><A>Mercury</A>
-<MC>The gas usually filled in the electric bulb is<O>Nitrogen:Hydrogen:Carbon Dioxide:Oxygen</O><A>Nitrogen</A>
-<QI>Identify this Chemist who formulated the periodic table<F>Science_Q7.jpeg</F><O>Glenn Seaborg:Horace Deming:Dmitri Mendeleev:Alexander Borodin</O><A>Dmitri Mendeleev</A>
-<QI>Identify this Scottish scientist who discovered Penicillin<F>Science_Q8.jpg</F><O>Alexander Fleming:Andrew Flintoff:Charles Thom:Howard Florey</O><A>Alexander Fleming</A>
-<QI>Recognize this legendary Astronaut <F>Science_Q9.jpeg</F><O>Yuri Gagarin:John Glenn:Scott Kelly:Neil Armstrong</O><A>Neil Armstrong</A>
-<QI>Who is this modern visionary?<F>Science_Q10.jpeg</F><O>Larry Ellison:Jeff Bezos:Elon Musk:Steve Jobs</O><A>Elon Musk</A>
+<MC>Humans need to breath which gas to stay alive?<O>Nitrogen:Hydrogen:Carbon Dioxide:Oxygen</O><A>Oxygen</A>
+<QI>What is name of this part of a plant?<F>Science1.jpeg</F><O>Petals:Sepals:Roots:Bark</O><A>Petals</A>
+<QI>Who discovered Penicillin?<F>Science2.jpeg</F><O>Alexander Fleming:Andrew Flintoff:Charles Thom:Howard Florey</O><A>Alexander Fleming</A>
+<QI>Recognize this legendary Astronaut <F>Science3.jpeg</F><O>Yuri Gagarin:John Glenn:Scott Kelly:Neil Armstrong</O><A>Neil Armstrong</A>
+<QI>Who is this well known personality?<F>Science4.jpeg</F><O>Larry Ellison:Jeff Bezos:Elon Musk:Steve Jobs</O><A>Elon Musk</A>
 <MC>Which of the gas is not known as green house gas?<O>Methane:Nitrous oxide:Carbon dioxide:Hydrogen</O><A>Hydrogen</A>
-
-
 <MC>What is the largest planet in our solar system?<O>Jupiter:Earth:Saturn:Uranus</O><A>Jupiter</A>
-
-<MC>What is the smallest planet in our solar system?<O>
-Answer: Mercury.
-
-What is the name of the galaxy that contains our solar system?
-Answer: The Milky Way.
-
-What is the difference between a solid, liquid and gas?
-Answer: A solid has a fixed shape and volume, a liquid has a fixed volume but takes the shape of its container, and a gas has neither a fixed shape nor volume.
-
-What is the process by which plants make their own food?
-Answer: Photosynthesis.
-
-What is the name for tiny living things that can only be seen with a microscope?
-Answer: Microorganisms or microbes.
-
-What is the name for the layer of gases that surrounds the Earth?
-Answer: The atmosphere.
-
-What is the name for the natural satellite that orbits the Earth?
-Answer: The Moon.
-
-What is the name for the closest star to Earth?
-Answer: The Sun.
-
-What is the name for the hard outer layer of the Earth?
-Answer: The crust.
-
-What is the name for the middle layer of the Earth?
-Answer: The mantle.
-
-What is the name for the innermost layer of the Earth?
-Answer: The core.
-
-What is the name for the process by which water changes from a liquid to a gas?
-Answer: Evaporation.
+<MC>What is the smallest planet in our solar system?<O>Earth:Mercury:Venus:Mars</O><A>Mercury</A>
+<MC>What is the name of the galaxy that contains our solar system?<O>Andromeda:Milky Way:Whirlpool:Sombrero</O><A>Milky Way</A>
+<MC>What is the name of the process by which water changes from a liquid to a gas?<O>Condensation:Evaporation:Sublimation:Deposition</O><A>Evaporation</A>
+<MC>What is the process by which plants make their own food?<O>Respiration:Transpiration:Photosynthesis:Osmosis</O><A>Photosynthesis</A>
+<MC>What is the name for tiny living things that can only be seen with a microscope?<O>Macroorganisms:Viruses:Prokaryotes:Microorganisms</O><A>Microorganisms</A>
+<MC>What is the name for the layer of gases that surrounds the Earth?<O>Stratosphere:Ionosphere:Atmosphere:Exosphere</O><A>Atmosphere</A>
+<MC>What is the name for the natural satellite that orbits the Earth?<O>Moon:Sun:Earth:Jupiter</O><A>Moon</A>
+<MC>What is the name for the closest star to Earth?<O>Mars:Venus:Sun:Mercury</O><A>Sun</A>
+<MC>What is the name for the hard outer layer of the Earth?<O>Core:Crust:Mantle:Atmosphere</O><A>Crust</A>
+<MC>What is the name for the middle layer of the Earth?<O>Core:Crust:Mantle:Atmosphere</O><A>Mantle</A>
+<MC>What is the name for the innermost layer of the Earth?<O>Core:Crust:Mantle:Atmosphere</O><A>Core</A>
+<MC>What is the name for the process by which water changes from a liquid to a gas?<O>Respiration:Transpiration:Photosynthesis:Evaporation</O><A>Evaporation</A>
+<MC>What do plants need to grow?<O>Water:Sunlight:Carbon dioxide:All of the above</O><A>All of the above</O>
+<MC>What is the study of rocks called?<O>Geology:Zoology:Botany:Chemistry</O><A>Geology</A>
+<MC>What is the color of the sun?<O>Red:Blue:Yellow:White</O><A>Yellow</A>
+<MC>What is the study of animals called?<O>Botany:Zoology:Geology:Chemistry</O><A>Zoology</A>
+<MC>What is the force that pulls objects towards the center of the Earth called?<O>Gravity:Friction:Centripetal force:Electromagnetic force</O><A>Gravity</A>
+<MC>What is the process of turning a solid into a gas called?<O>Condensation:Evaporation:Sublimation:Deposition</O><A>Sublimation</A>
+<MC>What is the process of turning a gas into a liquid called?<O>Cooling:Condensation:Evaporation:Sublimation</O><A>Condensation</A>
+<MC>What is the smallest unit of matter called?<O>Atom:Proton:Neutron:Electron</O><A>Atom</A>
