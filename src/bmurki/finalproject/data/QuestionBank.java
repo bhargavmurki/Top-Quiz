@@ -17,7 +17,7 @@ public abstract class QuestionBank {
 
     //bmurki.finalproject.data members
     private ArrayList<Question> questionList=new ArrayList<Question>();
-    public final String FILE_PATH="./Resources/Data/";
+    public final String FILE_PATH="./Resources/Database/"; //
     public final String IMAGE_PATH="./Resources/Images/";
     private int questionsAttempted = 0;
     private int correctAnswers = 0;
@@ -64,12 +64,12 @@ public abstract class QuestionBank {
             try
             {
                 //read bmurki.finalproject.data from file line by line
-                reader=new BufferedReader(new FileReader(file));
+                reader = new BufferedReader(new FileReader(file));
                 String line;
-                while((line=reader.readLine())!=null)
+                while ((line=reader.readLine()) != null)
                 {
                     ++i;
-                    newQuestion=new Question();
+                    newQuestion = new Question();
                     newQuestion.setQuestionID(i);
 
                     //identify question type
@@ -85,7 +85,7 @@ public abstract class QuestionBank {
                     {
                         newQuestion.setQuestionType(QuestionType.IMAGEQUESTION);
                         newQuestion.setQuestionText(line.substring(4, line.indexOf("<F>")));
-                        newQuestion.setQuestionImage(IMAGE_PATH+line.substring(line.indexOf("<F>") + 3,line.indexOf("</F>")));//set image path
+                        newQuestion.setQuestionImage(IMAGE_PATH+line.substring(line.indexOf("<F>") + 3,line.indexOf("</F>")));
                     }
                     if(qType==QuestionType.TRUEORFALSE)
                     {
@@ -104,11 +104,7 @@ public abstract class QuestionBank {
                     newQuestion.setOptions(options);
                     newQuestion.setAnswer(line.substring(line.indexOf("<A>") + 3, line.indexOf("</A>")));
                     questions.add(newQuestion);
-
-
                 }
-
-
             }
             catch (IOException e)
             {
