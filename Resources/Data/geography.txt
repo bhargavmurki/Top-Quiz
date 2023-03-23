@@ -1,0 +1,29 @@
+<MC>The Homolographic projection has the correct representation of:<O>shape:area:baring:distance</O><A>area</A>
+<MC>The latitudinal differences in pressure delineate a number of major pressure zones, which correspond with<O>zones of climate:zones of oceans:zones of land:zones of cyclonic depressions</O><A>zones of climate</A>
+<MC>The higher the wind speed and the longer the fetch or distance of open water across which the wind blows and waves travel, the ____ waves and the ____ energy they process.<O>larger, more:larger, less:smaller, more:smaller, less</O><A>larger, more</A>
+<MC>The hazards of radiation belts include<O>deterioration of electronic circuits:damage of solar cells of spacecraft:adverse effect on living organisms:All of the above</O><A>All of the above</A>
+<MC>The great Victoria Desert is located in<O>Canada:West Africa:Australia:North America</O><A>Australia</A>
+<MC>The intersecting lines drawn on maps and globes are<O>latitudes:longitudes:geographic grids:None of the above</O><A>geographic grids</A>
+<QI>Identify the prominent place shown in the picture:<F>Geography1.jpg</F><O>Red Fort:Great Wall of China:Wailing wall of Jerusalem</O><A>Great Wall of China</A>
+<QI>In which part of the world is the following statue located:<F>Geography2.JPG</F><O>New York:Rio de Janeiro:Paris:Melbourne</O><A>Rio de Janeiro</A>
+<MC>The minor planets revolving between the orbits of Jupiter and Mars are called:<O>Novas:Comets:Meteors:Asteroids</O><A>Asteroids</A>
+<MC>Which of the following is an inland sea?<O>Caribbean sea:Caspian sea:Red sea:Yellow sea</O><A>Caspian sea</A>
+<MC>The longest navigational water canal in the world is the<O>St. Laurence Seaway (USA and Canada):Suez canal, Egypt:Kiel canal, Germany:Panama canal, Central America</O><A>St. Laurence Seaway (USA and Canada)</A>
+<QI>Identify this UNESCO recognized World Heritage Site<F>Geography3.jpeg</F><O>Mount Everest:Mount Fuji:Mount Hood:Mount Shasta</O><A>Mount Fuji</A>
+<MC>What is the name of the continent we live on?<O>Asia:Europe:North America:South America</O><A>North America</A>
+<MC>What is the capital of the United States?<O>San Francisco:New York City:Los Angeles:Washington, D.C.</O><A>Washington, D.C.</A>
+<MC>What is the highest mountain in the world?<O>Mount Everest:Mount Fuji:Mount K2:Mount Nanga Parbat</O><A>Mount Everest</A>
+<MC>What is the longest river in the world?<O>Indus River:Nile River:Amazon River:Yangtze River</O><A>Nile River</A>
+<MC>Which country is known as the Land of the Rising Sun?<O>Japan:China:India:South Korea</O><A>Japan</A>
+<MC>What is the name of the largest desert in the world?<O>Sahara Desert:Gobi Desert:Kalahari Desert:Atacama Desert</O><A>Sahara Desert</A>
+<MC>What is the name of the ocean on the east coast of the United States?<O>Pacific Ocean:Indian Ocean:Atlantic Ocean:Arctic Ocean</O><A>Atlantic Ocean</A>
+<MC>What is the name of the sea located between Europe and Africa?<O>Baltic Sea:Black Sea:Mediterranean Sea:Red Sea</O><A>Mediterranean Sea</A>
+<MC>Which country is the smallest in the world by land area?<O>Russia:India:Monaco:Vatican City</O><A>Vatican City</A>
+<MC>What is the name of the largest country in South America?<O>Brazil:Argentina:Chile:Peru</O><A>Brazil</A>
+<MC>What is the name of the largest country in Africa?<O>Algeria:Libya:Ethiopia:South Africa</O><A>Algeria</A>
+<MC>What is the name of the world's largest coral reef?<O>Raja Ampat:Coral Reefs of the Maldives:Great Barrier Reef:Belize Barrier Reef</O><A>Great Barrier Reef</A>
+<MC>What is the name of the world's largest rainforest?<O>Amazon Rainforest:Indonesian Rainforest:Central African Rainforest:South American Rainforest</O><A>Amazon Rainforest</A>
+<MC>What is the name of the world's largest island?<O>Greenland:New Guinea:Madagascar:Borneo</O><A>Greenland</A>
+<MC>What is the name of the largest lake in Africa?<O>Lake Victoria:Lake Tanganyika:Lake Malawi:Lake Baikal</O><A>Lake Victoria</A>
+<MC>What is the name of the famous waterfall located on the border between the United States and Canada?<O>Niagara Falls:Maple Falls:Victoria Falls:Angel Falls</O><A>Niagara Falls</A>
+<MC>What is the name of the tallest animal in the world?<O>Giraaffe:Elephant:Blue Whale:Gorilla</O><A>Giraaffe</A>
