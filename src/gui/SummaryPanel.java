@@ -4,12 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Frame;
 import java.awt.Graphics;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -18,17 +16,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 
-import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
-import javax.swing.border.TitledBorder;
 
 
 public class SummaryPanel extends JPanel{
@@ -58,28 +52,28 @@ public class SummaryPanel extends JPanel{
 		
 		lblThank=new JLabel("<html>Please see you results below<br/></html>",SwingConstants.CENTER);
 		lblTotalScore=new JLabel( summary.getUserName() + "'s score is: "+summary.getTotalScore());
-		lblAttempted=new JLabel("Number of questions attempted: "+summary.getTotalQuestions());
-		lblCorrect=new JLabel("Number of correct answers: "+summary.getCorrectAnswers());
+		lblAttempted=new JLabel("Questions Answered: "+summary.getTotalQuestions());
+		lblCorrect=new JLabel("Correct Answers: "+summary.getCorrectAnswers());
 		lblInfo=new JLabel();
 		
 		lblThank.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		lblThank.setForeground(new Color(0, 0, 0));
 		lblTotalScore.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblTotalScore.setForeground(new Color(0, 128, 0));
+		lblTotalScore.setForeground(new Color(0, 0, 0));
 		lblAttempted.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblAttempted.setForeground(new Color(0, 128, 0));
+		lblAttempted.setForeground(new Color(0, 0, 0));
 		lblCorrect.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblCorrect.setForeground(new Color(0, 128, 0));
+		lblCorrect.setForeground(new Color(0, 0, 0));
 		lblInfo.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblInfo.setForeground(new Color(0, 0, 0));
 		
 		if(summary.getTotalScore()==0)
 		{
-			lblInfo.setText("<html>Better luck next time!</html>");
+			lblInfo.setText("<html>Try Harder!</html>");
 			lblInfo.setForeground(Color.RED);
 		}
 		else{
-			lblInfo.setText("<html>View your performance in <u>each of the topics you scored</u> below.</html>");
+			lblInfo.setText("<html>Here is your performance in each of the topics you answered</html>");
 			lblInfo.setForeground(new Color(0, 0, 0));
 		}
 
@@ -101,13 +95,10 @@ public class SummaryPanel extends JPanel{
 		graphPane.setAlignmentX(CENTER_ALIGNMENT);
 		graphPane.setPreferredSize(new Dimension(600,350));
 		
-		
-		
-		BarChart chart = new BarChart("Your Performance Chart");
+		BarChart chart = new BarChart("Performance Chart");
 		
 		chart.setAlignmentX(CENTER_ALIGNMENT);
-		//color for bar is chosen as a random color from a preferred list. Repeating colors are considered ok.
-		Color[] colors={Color.darkGray,Color.MAGENTA,Color.orange,Color.blue,Color.pink,Color.yellow};
+		Color[] colors={Color.red,Color.green,Color.orange,Color.blue,Color.magenta,Color.yellow, Color.cyan, Color.pink, Color.gray, Color.lightGray, Color.darkGray, Color.black};
 		for(Entry<String, Double> topicScore:statistics.entrySet())
 		{
 			Random rand = new Random();
@@ -146,7 +137,7 @@ public class SummaryPanel extends JPanel{
 				    {
 				    	f.dispose();
 				    }
-				    new TopQuizFrame();
+				    new MainFrameUI();
 				}
 				
 			}
@@ -184,13 +175,6 @@ public class SummaryPanel extends JPanel{
 				// start over again
 				if (e.getSource() == exitQuiz) {
 					System.exit(0);
-
-//					Frame[] fr=JFrame.getFrames();
-//					for(Frame f:fr)
-//					{
-//						f.dispose();
-//					}
-
 				}
 			}
 		});
@@ -201,8 +185,6 @@ public class SummaryPanel extends JPanel{
 		//show Try again button
     	playAgainPane.setVisible(true);
     	add(playAgainPane,BorderLayout.SOUTH);//add to layout
-    	
-		
 	}
 	
 
@@ -225,9 +207,6 @@ class BarChart extends JPanel
 	protected void paintComponent(Graphics g)
 	{
 		try{
-		//System.out.println("bars="+bars);
-		// determine longest bar
-		
 		double max = Double.MIN_VALUE;
 		for (String value : bars.values())//value is of format: Subject:scorePercent
 		{
@@ -250,7 +229,6 @@ class BarChart extends JPanel
 	    int q = titleFontMetrics.getAscent();
 	    int p = (maxWidth - titleWidth) / 2;
 	    g.setFont(titleFont);
-	    //g.drawString(title, p, q);//draw title
 
 		
 		int width = (maxWidth / bars.size()) - 2;
@@ -278,7 +256,7 @@ class BarChart extends JPanel
 			g.setFont(labelFont);
 		    g.drawString(subject+" - "+(value)+"%", x, maxHeight - height);//draw label
 		      
-		    x += (width + 5);//adjust x position
+		    x += (width + 5);
 		}
 		}
 		catch(Exception e)
@@ -290,6 +268,4 @@ class BarChart extends JPanel
 	public Dimension getPreferredSize() {
 		return new Dimension(bars.size() * 10 + 2, 50);
 	}
-
-	
 }

@@ -11,6 +11,8 @@ public class UserPage extends JFrame{
     private JLabel Username;
     private JTextField usernameText;
     private JButton SubmitButton;
+    private JLabel ageUser;
+    private JSpinner spinner1;
     private Container contentPane;
     private void initValues()
     {
@@ -22,7 +24,7 @@ public class UserPage extends JFrame{
     }
 
     public UserPage() {
-        super("UserPage");
+        super("TopQuiz");
         initValues();
 
         contentPane=getContentPane();
@@ -46,6 +48,26 @@ public class UserPage extends JFrame{
         usernameText = new JTextField(20);
         usernameText.setFont(new Font("Times New Roman", Font.BOLD, 35));
         usernameText.setAlignmentX(CENTER_ALIGNMENT);
+        usernameText.setInputVerifier(new InputVerifier() {
+            @Override
+            public boolean verify(JComponent input) {
+                JTextField feild = (JTextField) input;
+                if(feild.getText().trim().length() == 0){
+                    JOptionPane.showMessageDialog(null, "Please enter a name");
+                    return false;
+                }else {
+                    return true;
+                }
+            }
+        });
+
+        ageUser = new JLabel("Age");
+
+        SpinnerNumberModel ageSpinnerModel = new SpinnerNumberModel(5, 5, 10, 1);
+        spinner1 = new JSpinner(ageSpinnerModel);
+        spinner1.setValue(6);
+        JFormattedTextField ageTextField = ((JSpinner.DefaultEditor) spinner1.getEditor()).getTextField();
+        ageTextField.setEditable(false);
 
         SubmitButton = new JButton("Submit");
         SubmitButton.setFont(new Font("Times New Roman", Font.BOLD, 35));
@@ -55,10 +77,11 @@ public class UserPage extends JFrame{
 //        Home.setLayout(new GridLayout(3,2));
         Home.add(Username);
         Home.add(usernameText);
+        Home.add(ageUser);
+        Home.add(spinner1);
 
 
         Home.add(SubmitButton);
-//        add(Home);
         setContentPane(Home);
 
 
@@ -66,6 +89,8 @@ public class UserPage extends JFrame{
         @Override
         public void actionPerformed(ActionEvent e) {
             String name = usernameText.getText();
+            String age = spinner1.getValue().toString();
+            System.out.println(name + " " + age);
 
             FileOutputStream out = null;
             FileInputStream in = null;
@@ -88,7 +113,7 @@ public class UserPage extends JFrame{
             }
 
             dispose();
-            new TopQuizFrame();
+            new MainFrameUI();
         }
     });
 }

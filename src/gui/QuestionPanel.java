@@ -57,7 +57,6 @@ public class QuestionPanel extends JPanel {
 	private static int score=0;//total score
 	private static int attempted=0;//total questions attempted
 	private static int correctAnswers=0;//no. of questions answered correctly
-	private int timeTick=10;//for timer testing
 	private boolean isSubmitted=false;
 	
 	private final String LAYOUTIMAGEPATH="./Resources/LayoutImages/";
@@ -83,7 +82,6 @@ public class QuestionPanel extends JPanel {
 		score=0;
 		correctAnswers=0;
 		isSubmitted=false;
-		
 	}
 
 	public QuestionPanel(String quizSubject) {
@@ -95,17 +93,10 @@ public class QuestionPanel extends JPanel {
 
 		setAlignmentY(JComponent.CENTER_ALIGNMENT);
 
-		//Timer panel
-		timerPane=new JPanel();
-//		timerPane.setPreferredSize(new Dimension(800, 70));
-//		timerPane.setAlignmentY(CENTER_ALIGNMENT);
-		//timerPane.setBorder(BorderFactory.createLineBorder(Color.RED));
-
 		lblTimeProgress=new JLabel();
 
 		lblTimeProgress.setFont(new Font("Times New Roman", Font.BOLD, 35));
 		lblTimeProgress.setAlignmentX(CENTER_ALIGNMENT);
-//		setTimerLabel(10);
 		timerPane.add(lblTimeProgress);
 
 
@@ -116,7 +107,6 @@ public class QuestionPanel extends JPanel {
 		add(innerQPane, JComponent.CENTER_ALIGNMENT);
 		createButtons();
 
-//		startAnimation();//start timer on first load
 	}
 	
 	//setters
@@ -128,7 +118,6 @@ public class QuestionPanel extends JPanel {
 	}
 	public void setQuizSubject(String quizSubject) {
 		this.quizSubject = quizSubject;
-		//System.out.println("new subject="+quizSubject);
 	}
 	
 	
@@ -232,45 +221,34 @@ public class QuestionPanel extends JPanel {
 				//Check answer
 				if(rdoSelected!=null)
 				{
-					//stop timer if an answer is selected
-//					stopAnimation();
-					
 					btnSubmit.setVisible(false);
 					btnNext.setVisible(true);
 					
 					
 					if(rdoSelected.getActionCommand().equals(newQuestion.getAnswer()))
 					{
-						//correct, highlight in green, update Score
-						rdoSelected.setSize(rdoSelected.getParent().getWidth(),rdoSelected.getHeight());//resizing to set bg color to full length of container
-//						rdoSelected.setBackground(Color.GREEN);
-						score+=5;//increase score
-						correctAnswers++;//increment correct answer counter
+						rdoSelected.setSize(rdoSelected.getParent().getWidth(),rdoSelected.getHeight());
+						score+=5;
+						correctAnswers++;
 						qb.incrementCorrectAnswers();
 						
-						//invoke scoreupdated to update new score to label
 						scoreListener.scoreUpdated(score);
 					}
 					else
 					{
-						//wrong, highlight in red, update Score
-						rdoSelected.setSize(rdoSelected.getParent().getWidth(),rdoSelected.getHeight());//resizing to set bg color to full length of container
-//						rdoSelected.setBackground(Color.RED);
+						rdoSelected.setSize(rdoSelected.getParent().getWidth(),rdoSelected.getHeight());
 					}
 					
 					//if 10 questions attempted, end quiz.
 					if(attempted==10)
 					{
-						//attempted--;
 						JOptionPane.showMessageDialog(null, "Quiz Completed, Click Next to See the Scores","Quiz completed",JOptionPane.INFORMATION_MESSAGE);
-						//show summary pane
 						endQuiz();
 					}
 				}
 				else
 				{
-					isSubmitted=false;//is true only when an answer is selected and submitted
-					//print message to select an answer
+					isSubmitted=false;
 					JOptionPane.showMessageDialog(null, "Please select an answer to continue",
 							"Top Quiz - Alert",
 							JOptionPane.ERROR_MESSAGE);
@@ -304,8 +282,6 @@ public class QuestionPanel extends JPanel {
 				innerQPane.removeAll();
 				rdoSelected=null;
 				createQuestionAndOptions();
-//				setTimerLabel(10);
-
 				
 				//show submit button
 				btnSubmit.setVisible(true);
@@ -404,53 +380,6 @@ public class QuestionPanel extends JPanel {
 		}
 	}
 
-//	private void setTimerLabel(int remaining)
-//	{
-//		lblTimeProgress.setForeground(new Color(46, 139, 87));
-//		lblTimeProgress.setFont(new Font("Times New Roman", Font.BOLD, 35));
-//		lblTimeProgress.setText(String.valueOf(remaining));
-//	}
-
-	ActionListener timerListener = new ActionListener() {
-
-        public void actionPerformed(ActionEvent evt) {
-          
-//           setTimerLabel(timeTick);
-           
-           if(timeTick<5)
-           {
-        	   lblTimeProgress.setForeground(Color.RED);
-           }
-           
-           if(timeTick==0)//stop animation when time expires
-           {
-//        	   stopAnimation();
-        	   lblTimeProgress.setText("Time out!");//Show time out message
-        	   lblTimeProgress.setFont(new Font("Times New Roman", Font.BOLD, 50));
-        	   
-        	   isSubmitted=true;//when time out - similar to wrong answer submitted case.
-        	   btnSubmit.setVisible(false);//hide submit button when time out.
-   		  	   btnNext.setVisible(true);//show next button to proceed to next question.
-           }
-           timeTick--;
-        }
-     };
-
-//	void startAnimation() {
-//        if (timer == null) {
-//           timer = new Timer(1000, timerListener);
-//           timer.start();  // Make the time start running.
-//        }
-//    }
-//
-//    void stopAnimation() {
-//    	timeTick=10;
-//       if (timer != null) {
-//          timer.stop();
-//          timer = null;
-//       }
-//    }
-
     private void endQuiz(){
     	//calculate total percentage score of each subject
 		HashMap<String, Integer> scoresToSave = new HashMap<String, Integer>();
@@ -477,7 +406,6 @@ public class QuestionPanel extends JPanel {
     	scoreSummary.setCorrectAnswers(correctAnswers);
     	scoreSummary.setStatistics(percentScore);
 		scoreSummary.getUserName();
-//		System.out.println(scoresToSave);
 		scoreSummary.saveUserScore(scoresToSave);
     	summaryListener.quizEnded(scoreSummary);
     }

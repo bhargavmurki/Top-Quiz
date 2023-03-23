@@ -68,7 +68,7 @@ public class SubjectPanel extends JPanel {
 		rdoGrpSubject.add(rdoEntertainment);
 		
 		//prompt for topic selection
-		JLabel lblWelcome=new JLabel("<html>Choose a Topic<br/></html>",SwingConstants.LEFT);
+		JLabel lblWelcome=new JLabel("<html>Select a Topic<br/></html>",SwingConstants.LEFT);
 		lblWelcome.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		
 		
@@ -77,20 +77,18 @@ public class SubjectPanel extends JPanel {
 		panel.setPreferredSize(new Dimension(220,310));
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		panel.setAlignmentX(JComponent.TOP_ALIGNMENT);
-		
-		
+
+
 		panel.add(lblWelcome);
 		panel.add(new JLabel("<html><br/></html>"));
 		panel.add(rdoGeography);
 		panel.add(rdoScience);
 		panel.add(rdoEntertainment);
-		
+
 		
 		setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        add(panel,gbc);//add to layout
-		
-        
+        add(panel,gbc);
        
 	}
 	public SubjectPanel(String subject)

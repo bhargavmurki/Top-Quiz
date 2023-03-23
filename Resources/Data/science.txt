@@ -3,7 +3,7 @@
 <QI>What is name of this part of a plant?<F>Science1.jpeg</F><O>Petals:Sepals:Roots:Bark</O><A>Petals</A>
 <QI>Who discovered Penicillin?<F>Science2.jpeg</F><O>Alexander Fleming:Andrew Flintoff:Charles Thom:Howard Florey</O><A>Alexander Fleming</A>
 <QI>Recognize this legendary Astronaut <F>Science3.jpeg</F><O>Yuri Gagarin:John Glenn:Scott Kelly:Neil Armstrong</O><A>Neil Armstrong</A>
-<MC>The human body has 206 bones.<O>True:False</O><A>True</A>
+<TF>The human body has 206 bones.<O>True:False</O><A>True</A>
 <QI>Who is this well known personality?<F>Science4.jpeg</F><O>Larry Ellison:Jeff Bezos:Elon Musk:Steve Jobs</O><A>Elon Musk</A>
 <MC>Which of the gas is not known as green house gas?<O>Methane:Nitrous oxide:Carbon dioxide:Hydrogen</O><A>Hydrogen</A>
 <MC>What is the largest planet in our solar system?<O>Jupiter:Earth:Saturn:Uranus</O><A>Jupiter</A>
@@ -14,7 +14,7 @@
 <MC>What is the name for tiny living things that can only be seen with a microscope?<O>Macroorganisms:Viruses:Prokaryotes:Microorganisms</O><A>Microorganisms</A>
 <MC>What is the name for the layer of gases that surrounds the Earth?<O>Stratosphere:Ionosphere:Atmosphere:Exosphere</O><A>Atmosphere</A>
 <MC>What is the name for the natural satellite that orbits the Earth?<O>Moon:Sun:Earth:Jupiter</O><A>Moon</A>
-<MC>Water boils at 100 degrees Celsius.<O>True:False</O><A>True</A>
+<TF>Water boils at 100 degrees Celsius.<O>True:False</O><A>True</A>
 <MC>What is the name for the closest star to Earth?<O>Mars:Venus:Sun:Mercury</O><A>Sun</A>
 <MC>What is the name for the hard outer layer of the Earth?<O>Core:Crust:Mantle:Atmosphere</O><A>Crust</A>
 <MC>What is the name for the middle layer of the Earth?<O>Core:Crust:Mantle:Atmosphere</O><A>Mantle</A>
@@ -28,7 +28,7 @@
 <MC>What is the process of turning a solid into a gas called?<O>Condensation:Evaporation:Sublimation:Deposition</O><A>Sublimation</A>
 <MC>What is the process of turning a gas into a liquid called?<O>Cooling:Condensation:Evaporation:Sublimation</O><A>Condensation</A>
 <MC>What is the smallest unit of matter called?<O>Atom:Proton:Neutron:Electron</O><A>Atom</A>
-<MC>The Earth is flat.<O>True:False</O><A>False</A>
-<MC>Elephants are the only animals that can't jump.<O>True:False</O><A>True</A>
-<MC>The sun revolves around the Earth.<O>True:False</O><A>False</A>
-<MC>Liver is the largest internal organ in the human body<O>True:False</O><A>True</O>
+<TF>The Earth is flat.<O>True:False</O><A>False</A>
+<TF>Elephants are the only animals that can't jump.<O>True:False</O><A>True</A>
+<TF>The sun revolves around the Earth.<O>True:False</O><A>False</A>
+<TF>Liver is the largest internal organ in the human body<O>True:False</O><A>True</O>

@@ -10,7 +10,7 @@ public class ScoreSummary {
 	private int correctAnswers;
 	private Map<String,Double> statistics=new HashMap<String,Double>();
 	
-	public final int SCORE_VALUE=5;
+	public final int SCORE_VALUE=1;
 
 
 	public String getUserName(){

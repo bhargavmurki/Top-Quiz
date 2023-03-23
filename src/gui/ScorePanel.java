@@ -4,18 +4,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Objects;
 
 import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-
-import static java.util.Objects.isNull;
 
 public class ScorePanel extends JPanel {
 
@@ -73,7 +67,7 @@ public class ScorePanel extends JPanel {
         btnPlayAgain.setHorizontalTextPosition(SwingConstants.CENTER);
         btnPlayAgain.setBorderPainted(false);
         btnPlayAgain.setContentAreaFilled(false);
-        btnPlayAgain.setFont(new Font("Calibri", Font.BOLD, 15));
+        btnPlayAgain.setFont(new Font("Times New Roman", Font.BOLD, 15));
         btnPlayAgain.setForeground(new Color(0, 0, 139));
         btnPlayAgain.addActionListener(new ActionListener() {
 
@@ -86,7 +80,7 @@ public class ScorePanel extends JPanel {
                     {
                         f.dispose();
                     }
-                    new TopQuizFrame();
+                    new MainFrameUI();
                 }
 
             }

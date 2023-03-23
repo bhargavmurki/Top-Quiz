@@ -29,7 +29,6 @@ public class HeaderPanel extends JPanel {
 		
 		
 		lblTitle=new JLabel("Top Quiz",SwingConstants.CENTER);
-		lblTitle.setToolTipText("Top Quiz - Challenge Yourself");
 		lblTitle.setForeground(new Color(255, 255, 255));
 		lblTitle.setBackground(new Color(103, 227, 86));
 		lblTitle.setFont(new Font("Times New Roman", Font.ITALIC, 40));

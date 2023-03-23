@@ -17,9 +17,8 @@ public abstract class QuestionBank {
 
     //data members
     private ArrayList<Question> questionList=new ArrayList<Question>();
-    public final String FILE_PATH="./Resources/Data/";//folder path where input files are located.
-    public final String IMAGE_PATH="./Resources/Images/";//folder path where image files are located.
-
+    public final String FILE_PATH="./Resources/Data/";
+    public final String IMAGE_PATH="./Resources/Images/";
     private int questionsAttempted=0;
     private int correctAnswers=0;
 
@@ -90,13 +89,12 @@ public abstract class QuestionBank {
                         newQuestion.setQuestionType(QuestionType.IMAGEQUESTION);
                         newQuestion.setQuestionText(line.substring(4, line.indexOf("<F>")));
                         newQuestion.setQuestionImage(IMAGE_PATH+line.substring(line.indexOf("<F>")+3,line.indexOf("</F>")));//set image path
-                        //System.out.println("imagepath="+newQuestion.getQuestionImage());
                     }
-//                    if(qType==QuestionType.IMAGEANSWER)
-//                    {
-//                        newQuestion.setQuestionType(QuestionType.IMAGEANSWER);
-//                        newQuestion.setQuestionText(line.substring(4, line.indexOf("<O>")));
-//                    }
+                    if(qType==QuestionType.TRUEORFALSE)
+                    {
+                        newQuestion.setQuestionType(QuestionType.TRUEORFALSE);
+                        newQuestion.setQuestionText(line.substring(2, line.indexOf("<O>")));
+                    }
 
 
                     //split the string enclosed in <O></O> and set options
@@ -131,9 +129,6 @@ public abstract class QuestionBank {
         }
         else
             System.out.println("Error: File does not exist. Please provide a valid file path and file name.");
-
-
-
     }
 
     public abstract Question getRandomQuestion();
@@ -147,20 +142,17 @@ public abstract class QuestionBank {
         double score=getCorrectAnswers()*5.0;
         double percent=(score/total)*100.0;
 
-        //System.out.println(score+"/"+total);
         return percent;
     }
 
-
     private QuestionType getQuestionType(String questionType)
     {
-        //System.out.println(questionType);
         if(questionType.equals("<MC>"))
             return QuestionType.MULTIPLECHOICE;
         else if(questionType.equals("<QI>"))
             return QuestionType.IMAGEQUESTION;
-//        else if(questionType.equals("<AI>"))
-//            return QuestionType.IMAGEANSWER;
+        else if(questionType.equals("<TF>"))
+            return QuestionType.TRUEORFALSE;
 
         return null;
     }

@@ -53,7 +53,6 @@ public class QuizPanel extends JPanel {
 		//for score update and topic selection
 		JPanel rightPane=new JPanel();
 		rightPane.setLayout(new BoxLayout(rightPane, BoxLayout.Y_AXIS));
-//		rightPane.add(liveScorePane,Component.LEFT_ALIGNMENT);//rightPane.add(scorePane);
 		rightPane.add(subjectPane);
 
 		//for questions and rightpane(score,topic)

@@ -1,9 +1,9 @@
 <MC>What is the fastest aquatic animal? <O>The Sailfish:The Blue Whale:The Great White Shark:The Killer Whale</O><A>The Sailfish</A>
 <MC>Are worker bees male or female?<O>Male:Female</O><A>Female</A>
 <MC>Which color is an emerald?<O>Red:Green:Blue:Yellow</O><A>Green</A>
-<MC>Spider-Man's secret identity is Bruce Wayne.<O>True:False</O><A>False</A>
-<MC>"Sesame Street" is a TV show for preschoolers that teaches letters, numbers, and social skills.<O>True:False</O><A>True</A>
-<MC>"The Lion King" is a movie about a young elephant.<O>True:False</O><A>False</A>
+<TF>Spider-Man's secret identity is Bruce Wayne.<O>True:False</O><A>False</A>
+<TF>Sesame Street is a TV show for preschoolers that teaches letters, numbers, and social skills.<O>True:False</O><A>True</A>
+<TF>The Lion King is a movie about a young elephant.<O>True:False</O><A>False</A>
 <MC>Whose nose grew longer every time he lied? <O>Rumpelstiltskin:Pinocchio:Jack and the Beanstalk:Little Red Riding Hood</O><A>Pinocchio</A>
 <MC>Which big cat is the largest?<O>Lion:Tiger:Lepord:Panther </O><A>Tiger</A>
 <MC>How many legs does a lobster have?<O>Ten:Eight:Six:Four</O><A>Ten</A>
@@ -12,7 +12,7 @@
 <MC>How many teeth does an adult human have?<O>Thirty-one:Thirty-two:Thirty-three:Thirty-four</O><A>Thirty-two</A>
 <MC>How many elements are there in the periodic table?<O>115:116:117:118</O><A>118</A>
 <MC>Which US city is famous for Hollywood?<>San Diego:Sacramento:San Francisco:Los Angeles</O><A>Los Angeles</A>
-<MC>"Harry Potter" is a series of books written by J.K. Rowling.<O>True:False</O><A>True</A>
+<TF>"Harry Potter" is a series of books written by J.K. Rowling.<O>True:False</O><A>True</A>
 <MC>Which type of fish is Nemo?<O> Gold Fish:Clownfish:Tilapia:Guppy</O><A>Clownfish</A>
 <MC>Where is the Great Pyramid of Giza located?<O>India:China:Egypt:Russia</O><A>Egypt</A>
 <MC>Which is the world’s largest ocean?<O>Pacific Ocean:Atlantic Ocean:Indian Ocean:Arctic Ocean</O><A>Pacific Ocean</A>
@@ -28,4 +28,4 @@
 <QI>Identify this artifact from the Star Wars series?<F>entertainment2.jpeg</F><O>Wookie Planet:Mordor:Death Star:Black Ball</O><A>Death Star</A>
 <QI>Who are these Formula One drivers?<F>entertainment3.jpeg</F><O>Lewis Hamilton & Valteri Bottas:Michael Schumacher & Aryton Senna:Lewis Hamilton & Charles Leclerc:Sebastian Vettel & Charles Leclerc</O><A>Lewis Hamilton & Charles Leclerc</A>
 <QI>What game are they playing?<F>entertainment4.jpeg</F><O>Soccer:Quidditch:American Football:None of the Above</O><A>Quidditch</A>
-<MC>Mickey Mouse is a character created by Disney.<O>True:False</O><A>True</A>
+<TF>Mickey Mouse is a character created by Disney.<O>True:False</O><A>True</A>
