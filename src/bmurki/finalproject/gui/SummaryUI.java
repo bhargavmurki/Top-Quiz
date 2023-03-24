@@ -24,37 +24,49 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+/**
 
-public class SummaryPanel extends JPanel{
-	
-	//member controls
+ SummaryUI class displays the final score, number of questions answered,
+
+ number of correct answers and a bar chart showing the performance of each topic.
+
+ It also provides options to play again, start a new game or exit.
+ */
+public class SummaryUI extends JPanel{
+
+	// Member controls
 	private JLabel lblTotalScore;
 	private JLabel lblAttempted;
 	private JLabel lblCorrect;
 	private JLabel lblThank;
 	private JLabel lblInfo;
-	
+
 	private JButton btnPlayAgain;
 	private JPanel playAgainPane;
-	
-	//score statistics collection
+
+	// Score statistics collection
 	private Map<String,Double> statistics=new HashMap<String,Double>();
-	
-	
-	//Constructor
-	public SummaryPanel(ScoreSummary summary)
+
+	/**
+
+	 Constructor for SummaryUI class.
+
+	 @param summary A ScoreSummary object containing the user's score statistics.
+	 */
+	public SummaryUI(ScoreSummary summary)
 	{
 		statistics=summary.getStatistics();
-		
-		
+
 		setLayout(new BorderLayout());
-		
+
+// Initialize and style labels
 		lblThank=new JLabel("<html>Please see you results below<br/></html>",SwingConstants.CENTER);
 		lblTotalScore=new JLabel( summary.getUserName() + "'s score is: "+summary.getTotalScore());
 		lblAttempted=new JLabel("Questions Answered: "+summary.getTotalQuestions());
 		lblCorrect=new JLabel("Correct Answers: "+summary.getCorrectAnswers());
 		lblInfo=new JLabel();
-		
+
+// Set font and color for labels
 		lblThank.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		lblThank.setForeground(new Color(0, 0, 0));
 		lblTotalScore.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -65,7 +77,8 @@ public class SummaryPanel extends JPanel{
 		lblCorrect.setForeground(new Color(0, 0, 0));
 		lblInfo.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		lblInfo.setForeground(new Color(0, 0, 0));
-		
+
+// Set info text based on total score
 		if(summary.getTotalScore()==0)
 		{
 			lblInfo.setText("<html>Try Harder!</html>");
@@ -76,19 +89,19 @@ public class SummaryPanel extends JPanel{
 			lblInfo.setForeground(new Color(0, 0, 0));
 		}
 
+// Create final score panel
 		JPanel finalScorePane = new JPanel();
 		finalScorePane.setLayout(new BoxLayout(finalScorePane, BoxLayout.Y_AXIS));
 		finalScorePane.setPreferredSize(new Dimension(500,200));
-		
-		
+
+// Add labels to final score panel
 		finalScorePane.add(lblThank);
 		finalScorePane.add(lblTotalScore);
 		finalScorePane.add(lblAttempted);
 		finalScorePane.add(lblCorrect);
-		
 		finalScorePane.add(lblInfo);
-		
-		//graph pane
+
+// Create graph panel
 		JPanel graphPane=new JPanel();
 		graphPane.setLayout(new BorderLayout());
 		graphPane.setAlignmentX(CENTER_ALIGNMENT);
@@ -158,7 +171,7 @@ public class SummaryPanel extends JPanel{
 					{
 						f.dispose();
 					}
-					new UserPage();
+					new UserPageUI();
 				}
 			}
 		});
@@ -188,82 +201,95 @@ public class SummaryPanel extends JPanel{
 	
 
 }
+/**
+
+ BarChart class is a custom JPanel used to draw a bar chart with a title and labels.
+
+ It displays the performance of each topic in the form of colored bars with the corresponding score percentage.
+ */
 class BarChart extends JPanel
 {
+	private String title;
+	private Map<Color, String> bars = new LinkedHashMap<Color, String>();
+
+	/**
+
+	 Constructor for the BarChart class.
+	 @param title The title displayed at the top of the bar chart.
+	 */
 	BarChart(String title)
 	{
-		this.title=title;
+		this.title = title;
 	}
-	private String title;
-	private Map<Color, String> bars =new LinkedHashMap<Color, String>();
+	/**
 
+	 Adds a bar to the bar chart with the specified color and value.
+	 @param color The color of the bar.
+	 @param value The value for the bar, in the format "Subject:scorePercent".
+	 */
 	public void addBar(Color color, String value)
 	{
 		bars.put(color, value);
 		repaint();
 	}
+	/**
 
+	 Paints the bar chart on the JPanel with bars, title, and labels.
+
+	 @param g The Graphics object used to paint the bar chart.
+	 */
 	protected void paintComponent(Graphics g)
 	{
-		try{
-		double max = Double.MIN_VALUE;
-		for (String value : bars.values())//value is of format: Subject:scorePercent
-		{
-			double score=Double.parseDouble(value.split(":")[1]);
-			max = Math.max(max, score);
-		}
-		
-		// paint bars
-		
-		int maxWidth=600;
-		int maxHeight=300;
-		
-		//title and subject label styles
-		Font titleFont = new Font("Times New Roman", Font.BOLD, 20);
-	    FontMetrics titleFontMetrics = g.getFontMetrics(titleFont);
-	    Font labelFont = new Font("Times New Roman", Font.BOLD, 15);
-	    FontMetrics labelFontMetrics = g.getFontMetrics(labelFont);
+		try {
+			double max = Double.MIN_VALUE;
+			for (String value : bars.values()) { //value is of format: Subject:scorePercent
+				double score = Double.parseDouble(value.split(":")[1]);
+				max = Math.max(max, score);
+			}
+			// Paint bars
+			int maxWidth = 600;
+			int maxHeight = 300;
 
-	    int titleWidth = titleFontMetrics.stringWidth(title);
-	    int q = titleFontMetrics.getAscent();
-	    int p = (maxWidth - titleWidth) / 2;
-	    g.setFont(titleFont);
+			// Title and subject label styles
+			Font titleFont = new Font("Times New Roman", Font.BOLD, 20);
+			FontMetrics titleFontMetrics = g.getFontMetrics(titleFont);
+			Font labelFont = new Font("Times New Roman", Font.BOLD, 15);
+			FontMetrics labelFontMetrics = g.getFontMetrics(labelFont);
 
-		
-		int width = (maxWidth / bars.size()) - 2;
-		int x = 1;
-		for (Color color : bars.keySet())
-		{
-			String subject=bars.get(color).split(":")[0];
-			
-			double value = Double.parseDouble(bars.get(color).split(":")[1]);
-			
-			//to handle 0 score condition
-			int height=0;
-			if(value==0)
-				height=1;
-			else
-				height = (int)((maxHeight-q-20) * ((double)value / max));
-			
-			
-			g.setColor(color);
-			g.fillRect(x, maxHeight - height, width, height);
-			g.setColor(Color.black);
+			int titleWidth = titleFontMetrics.stringWidth(title);
+			int q = titleFontMetrics.getAscent();
+			int p = (maxWidth - titleWidth) / 2;
+			g.setFont(titleFont);
 
-			g.drawRect(x, maxHeight - height, width, height);//draw bar
-			
-			g.setFont(labelFont);
-		    g.drawString(subject+" - "+(value)+"%", x, maxHeight - height);//draw label
-		      
-		    x += (width + 5);
-		}
-		}
-		catch(Exception e)
-		{
+			int width = (maxWidth / bars.size()) - 2;
+			int x = 1;
+			for (Color color : bars.keySet()) {
+				String subject = bars.get(color).split(":")[0];
+				double value = Double.parseDouble(bars.get(color).split(":")[1]);
+
+				// Handle 0 score condition
+				int height = (value == 0) ? 1 : (int) ((maxHeight - q - 20) * (value / max));
+
+				g.setColor(color);
+				g.fillRect(x, maxHeight - height, width, height);
+				g.setColor(Color.black);
+
+				g.drawRect(x, maxHeight - height, width, height); // Draw bar
+
+				g.setFont(labelFont);
+				g.drawString(subject + " - " + value + "%", x, maxHeight - height); // Draw label
+
+				x += (width + 5);
+			}
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
+	/**
 
+	 Returns the preferred size of the BarChart component.
+	 @return A Dimension object representing the preferred size of the BarChart.
+	 */
 	public Dimension getPreferredSize() {
 		return new Dimension(bars.size() * 10 + 2, 50);
 	}

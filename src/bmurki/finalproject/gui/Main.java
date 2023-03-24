@@ -1,5 +1,8 @@
+/**
+ The Main class contains the main method which runs the application.
+ It sets the cross-platform look and feel for the GUI and creates an instance of the UserPageUI.
+ */
 package bmurki.finalproject.gui;
-
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -13,7 +16,7 @@ public class Main {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				new UserPage();
+				new UserPageUI();
 
 			}
 		});

@@ -30,45 +30,50 @@ import bmurki.finalproject.data.QuestionBank;
 import bmurki.finalproject.data.QuestionType;
 import bmurki.finalproject.data.ScienceQuiz;
 
+/**
+ * QuestionUI class represents the user interface for displaying questions and handling user
+ * interaction with the quiz.
+ */
+public class QuestionUI extends JPanel {
 
-public class QuestionPanel extends JPanel {
-
+	// member controls
 	private JLabel lblNum;
 	private JTextArea lblQuestion;
-	private JButton btnSubmit;
+	private JButton buttonSubmit;
 	private JButton btnNext;
-	private JButton btnEnd;
+	private JButton buttonEnd;
 	private JRadioButton rdoSelected;
 	//private JLabel lblError;
 	private JPanel innerQPane;
 	private JPanel buttonPane;
 
-	
 	private JLabel lblQuestionImage;
-
 
 	private ActionListener radioBtnEventHandler;
 	private ScoreListener scoreListener;
 	private SummaryListener summaryListener;
-	private static int score=0; //total score
-	private static int attempted=0; //total questions attempted
-	private static int correctAnswers=0; //no. of questions answered correctly
-	private boolean isSubmitted=false;
-	
+	private static int score = 0; //total score
+	private static int attempted = 0; //total questions attempted
+	private static int correctAnswers = 0; //no. of questions answered correctly
+	private boolean isSubmitted = false;
+
 	private final String LAYOUTIMAGEPATH = "./Resources/LayoutImages/";
-	
+
 	private Question newQuestion;
 	protected QuestionBank qb;
-	
+
 	//to get questions for each topic
-	private static GeographyQuiz geographyQuiz =new GeographyQuiz();
-	private static ScienceQuiz scienceQuiz =new ScienceQuiz();
-	private static EntertainmentQuiz entertainmentQuiz =new EntertainmentQuiz();
-	
+	private static GeographyQuiz geographyQuiz = new GeographyQuiz();
+	private static ScienceQuiz scienceQuiz = new ScienceQuiz();
+	private static EntertainmentQuiz entertainmentQuiz = new EntertainmentQuiz();
+
+	//to store the selected option for each question
 	private String quizSubject;
 
-	private void initValues()
-	{
+	/**
+	 * Initializes the values for the quiz.
+	 */
+	private void initValues() {
 		geographyQuiz = null;
 		scienceQuiz = null;
 		entertainmentQuiz = null;
@@ -80,8 +85,12 @@ public class QuestionPanel extends JPanel {
 		isSubmitted = false;
 	}
 
-	public QuestionPanel(String quizSubject) {
-
+	/**
+	 * Constructor that sets the quiz subject and initializes the UI elements.
+	 *
+	 * @param quizSubject The subject of the quiz to be displayed.
+	 */
+	public QuestionUI(String quizSubject) {
 		initValues();
 		setPreferredSize(new Dimension(800, 700));
 		setQuizSubject(quizSubject);
@@ -89,16 +98,19 @@ public class QuestionPanel extends JPanel {
 
 		setAlignmentY(JComponent.CENTER_ALIGNMENT);
 
-
-		//add and populate controls with the question and options
-		innerQPane=new JPanel();
+		//add controls with the question and options
+		innerQPane = new JPanel();
 		createQuestionAndOptions();
 		add(innerQPane, JComponent.CENTER_ALIGNMENT);
 		createButtons();
 
 	}
-	
-	//setters
+
+	/**
+	 * Sets the ScoreListener for this quiz.
+	 *
+	 * @param scoreListener The ScoreListener to be set.
+	 */
 	public void setScoreListener(ScoreListener scoreListener) {
 		this.scoreListener = scoreListener;
 	}
@@ -132,7 +144,7 @@ public class QuestionPanel extends JPanel {
 		innerQPane.setSize(750, 400);
 		
 		JPanel numPane=new JPanel();
-		lblNum=new JLabel("<html>Question "+(attempted)+" of 10<br/><br/></html>");
+		lblNum=new JLabel("<html>Question "+(attempted)+" of 20<br/><br/></html>");
 		lblNum.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		numPane.add(lblNum,JComponent.LEFT_ALIGNMENT);
 		
@@ -147,10 +159,12 @@ public class QuestionPanel extends JPanel {
 		lblQuestion.setOpaque(false);
 		lblQuestion.setSize(750, 100);
 		qTextPane.add(lblQuestion);
+		// add question number and question text to inner pane
 		
 		
 		innerQPane.add(numPane);
 		innerQPane.add(qTextPane);
+		// add image if question type is image
 		
 		if(newQuestion.getQuestionType() == QuestionType.IMAGEQUESTION)
 		{
@@ -173,6 +187,7 @@ public class QuestionPanel extends JPanel {
 		optionPane.setLayout(new BoxLayout(optionPane, BoxLayout.Y_AXIS));
 		
 		optionPane.setAlignmentX(Component.CENTER_ALIGNMENT);
+		// add options to option pane
 		for(String option :newQuestion.getOptions())
 		{
 			JRadioButton newOption=new JRadioButton(option);
@@ -187,6 +202,7 @@ public class QuestionPanel extends JPanel {
 		innerQPane.add(optionPane,Component.LEFT_ALIGNMENT);//add to layout
 		}
 	}
+	// create buttons
 
 	private void createButtons()
 	{
@@ -195,50 +211,54 @@ public class QuestionPanel extends JPanel {
 		
 		//button to submit answer
 		ImageIcon submitIcon=new ImageIcon(LAYOUTIMAGEPATH+"SubmitBlueButton.png");
-		btnSubmit=new JButton("Submit");
+		buttonSubmit=new JButton("Submit");
 		
-		btnSubmit.setForeground(new Color(255, 255, 255));
-		btnSubmit.setOpaque(true);
-		btnSubmit.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnSubmit.setBackground(new Color(46, 162, 0));
+		buttonSubmit.setForeground(new Color(255, 255, 255));
+		buttonSubmit.setOpaque(true);
+		buttonSubmit.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		buttonSubmit.setBackground(new Color(46, 162, 0));
 		
-		btnSubmit.setToolTipText("Submit");
+		buttonSubmit.setToolTipText("Submit");
+		
+		// add action listener to submit button
 
-		btnSubmit.addActionListener(new ActionListener() {
+		buttonSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				isSubmitted=true;
+				isSubmitted = true;
 				//Check answer
-				if(rdoSelected!=null)
+				if(rdoSelected != null)
 				{
-					btnSubmit.setVisible(false);
+					buttonSubmit.setVisible(false);
 					btnNext.setVisible(true);
 					
-					
-					if(rdoSelected.getActionCommand().equals(newQuestion.getAnswer()))
+					//if correct answer, increment score
+					if (rdoSelected.getActionCommand().equals(newQuestion.getAnswer()))
 					{
 						rdoSelected.setSize(rdoSelected.getParent().getWidth(),rdoSelected.getHeight());
-						score+=5;
+						score += 5;
 						correctAnswers++;
 						qb.incrementCorrectAnswers();
 						
 						scoreListener.scoreUpdated(score);
 					}
+					
 					else
 					{
 						rdoSelected.setSize(rdoSelected.getParent().getWidth(),rdoSelected.getHeight());
 					}
 					
-					//if 10 questions attempted, end quiz.
-					if(attempted==10)
+					//if 20 questions attempted, end quiz.
+					if(attempted==20)
 					{
-						JOptionPane.showMessageDialog(null, "Quiz Completed, Click Next to See the Scores","Quiz completed",JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Quiz Completed, Click Next to view results","Quiz completed",JOptionPane.INFORMATION_MESSAGE);
 						endQuiz();
 					}
 				}
+				// if no answer selected, show error message	
 				else
 				{
 					isSubmitted=false;
-					JOptionPane.showMessageDialog(null, "Please select an answer to continue",
+					JOptionPane.showMessageDialog(null, "Select an answer to continue",
 							"Top Quiz - Alert",
 							JOptionPane.ERROR_MESSAGE);
 				}
@@ -252,16 +272,15 @@ public class QuestionPanel extends JPanel {
 		btnNext.setBackground(new Color(86, 165, 210));
 		
 		btnNext.setVisible(false);
-
+		// add action listener to next button
 		btnNext.addActionListener(new ActionListener() {
 			
-			@Override
 			public void actionPerformed(ActionEvent e) {
 				isSubmitted=false;
 				
-				if(attempted == 10)
+				if(attempted == 20)
 				{
-					JOptionPane.showMessageDialog(null, "Quiz Completed, Click Next to See the Scores","Quiz completed",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Quiz Completed, Click next to view results","Quiz completed",JOptionPane.INFORMATION_MESSAGE);
 					endQuiz();
 				}
 				else {
@@ -273,56 +292,41 @@ public class QuestionPanel extends JPanel {
 				createQuestionAndOptions();
 				
 				//show submit button
-				btnSubmit.setVisible(true);
+				buttonSubmit.setVisible(true);
 				//hide next button
 				btnNext.setVisible(false);
-				
-				
-	             Thread worker = new Thread() {
-	            	  
-	                  public void run()
-	                  {
-	                	  SwingUtilities.invokeLater( new Runnable(){
-	                		  public void run()
-	                		  {
-//	                			  startAnimation();
-	                		  }
-	                	  });
-	                  }
-	             };
-	             worker.start();
 				}
 			}
 		});
 		
 		
-		buttonPane.add(btnSubmit);
+		buttonPane.add(buttonSubmit);
 		buttonPane.add(btnNext);
 		
 		
 		JPanel endButtonPane=new JPanel();
 		endButtonPane.setLayout(new BoxLayout(endButtonPane,BoxLayout.X_AXIS));
 		
-		btnEnd=new JButton("End Quiz");
+		buttonEnd=new JButton("End Quiz");
 		
-		btnEnd.setForeground(new Color(255, 255, 255));
-		btnEnd.setOpaque(true);
-		btnEnd.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnEnd.setBackground(new Color(220, 41, 41));
+		buttonEnd.setForeground(new Color(255, 255, 255));
+		buttonEnd.setOpaque(true);
+		buttonEnd.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		buttonEnd.setBackground(new Color(220, 41, 41));
 
-		btnEnd.addActionListener(new ActionListener() {
+		buttonEnd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(isSubmitted)
 					endQuiz();
 				else
 				{
-					JOptionPane.showMessageDialog(null, "Select an Answer brfore quiting the quiz",
+					JOptionPane.showMessageDialog(null, "Select an answer to end quiz",
 							"Top Quiz - Alert",
 							JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
-		endButtonPane.add(btnEnd);
+		endButtonPane.add(buttonEnd);
 		
 		add(buttonPane,JComponent.CENTER_ALIGNMENT);
 		add(endButtonPane,JComponent.RIGHT_ALIGNMENT);
@@ -337,6 +341,7 @@ public class QuestionPanel extends JPanel {
 	   }
 
 	private void setQuestionBank()
+	// set question bank based on subject selected
 	{
 		switch (quizSubject) {
 		case "Geography":

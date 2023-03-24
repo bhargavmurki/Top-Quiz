@@ -66,6 +66,7 @@ public abstract class QuestionBank {
                 //read bmurki.finalproject.data from file line by line
                 reader = new BufferedReader(new FileReader(file));
                 String line;
+                // read each line and add to the list
                 while ((line=reader.readLine()) != null)
                 {
                     ++i;
@@ -81,12 +82,14 @@ public abstract class QuestionBank {
                         newQuestion.setQuestionType(QuestionType.MULTIPLECHOICE);
                         newQuestion.setQuestionText(line.substring(4, line.indexOf("<O>")));
                     }
+                    //set question text and image
                     if(qType==QuestionType.IMAGEQUESTION)
                     {
                         newQuestion.setQuestionType(QuestionType.IMAGEQUESTION);
                         newQuestion.setQuestionText(line.substring(4, line.indexOf("<F>")));
                         newQuestion.setQuestionImage(IMAGE_PATH+line.substring(line.indexOf("<F>") + 3,line.indexOf("</F>")));
                     }
+                    //set question to true or false
                     if(qType==QuestionType.TRUEORFALSE)
                     {
                         newQuestion.setQuestionType(QuestionType.TRUEORFALSE);
@@ -106,6 +109,7 @@ public abstract class QuestionBank {
                     questions.add(newQuestion);
                 }
             }
+            //catch exceptions
             catch (IOException e)
             {
 //                System.out.println("Exception:"+e.getMessage());
@@ -120,15 +124,20 @@ public abstract class QuestionBank {
             }
         }
         else
+            //print error message if file is missing
             System.out.println("Error: File does not exist.");
     }
-
+    /**
+     * This method returns a random question from the question list
+     * @return
+     */
     public abstract Question getRandomQuestion();
 
     public double getPercentageScore()
     {
         if(getQuestionsAttempted() == 0)
             return 0;
+        // calculate the percentage score
 
         int total = getQuestionsAttempted() * 5;
         double score = getCorrectAnswers() * 5.0;
@@ -136,7 +145,11 @@ public abstract class QuestionBank {
 
         return percent;
     }
-
+    /**
+     * This method returns the question type based on the question type string
+     * @param questionType
+     * @return
+     */
     private QuestionType getQuestionType(String questionType)
     {
         if(questionType.equals("<MC>"))
