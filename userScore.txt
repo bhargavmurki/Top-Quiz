@@ -1,2 +1,4 @@
-user1 3 1 1
-user2 2 1 1
+User1 3 4 1
+User1 null 0 null
+user2 null 1 null
+sf 0 null null

@@ -129,7 +129,7 @@ public abstract class QuestionBank {
     }
     /**
      * This method returns a random question from the question list
-     * @return
+     * @return percent
      */
     public abstract Question getRandomQuestion();
 
